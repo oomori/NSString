@@ -35,19 +35,19 @@
 		742EA0F614D6B96000D127FF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		742EA0F714D6B96000D127FF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		742EA0F814D6B96000D127FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		742EA0FB14D6B96000D127FF /* NSString-Info.plist */ = {isa = PBXFileReference; path = "NSString-Info.plist"; sourceTree = "<group>"; };
+		742EA0FB14D6B96000D127FF /* NSString-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSString-Info.plist"; sourceTree = "<group>"; };
 		742EA0FD14D6B96000D127FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		742EA0FF14D6B96000D127FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		742EA10114D6B96000D127FF /* NSString-Prefix.pch */ = {isa = PBXFileReference; path = "NSString-Prefix.pch"; sourceTree = "<group>"; };
+		742EA10114D6B96000D127FF /* NSString-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString-Prefix.pch"; sourceTree = "<group>"; };
 		742EA10314D6B96000D127FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		742EA10514D6B96000D127FF /* OOOAppDelegate.h */ = {isa = PBXFileReference; path = OOOAppDelegate.h; sourceTree = "<group>"; };
+		742EA10514D6B96000D127FF /* OOOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOOAppDelegate.h; sourceTree = "<group>"; };
 		742EA10614D6B96000D127FF /* OOOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OOOAppDelegate.m; sourceTree = "<group>"; };
 		742EA10914D6B96000D127FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		742EA11014D6B96000D127FF /* NSStringTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSStringTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		742EA11114D6B96000D127FF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		742EA11814D6B96000D127FF /* NSStringTests-Info.plist */ = {isa = PBXFileReference; path = "NSStringTests-Info.plist"; sourceTree = "<group>"; };
+		742EA11814D6B96000D127FF /* NSStringTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSStringTests-Info.plist"; sourceTree = "<group>"; };
 		742EA11A14D6B96000D127FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		742EA11C14D6B96000D127FF /* NSStringTests.h */ = {isa = PBXFileReference; path = NSStringTests.h; sourceTree = "<group>"; };
+		742EA11C14D6B96000D127FF /* NSStringTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringTests.h; sourceTree = "<group>"; };
 		742EA11D14D6B96000D127FF /* NSStringTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
