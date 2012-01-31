@@ -143,7 +143,7 @@
     NSOpenPanel  *opPanel       = [ NSOpenPanel openPanel ];
 
     //OpenPanelでファイル選択
-    //この方法は10.6以降
+    //This way is 10.6 or later
     [opPanel setCanChooseDirectories:YES];
     [opPanel setAllowsMultipleSelection:YES];
     [opPanel setPrompt:NSLocalizedString(@"Add torrent", nil)];
