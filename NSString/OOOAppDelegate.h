@@ -27,4 +27,8 @@
 
 -(void)method010;
 -(NSString *)method011;
+-(NSString *)method012;
+-(NSString *)method013;
+-(NSString *)method014;
+
 @end

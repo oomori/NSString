@@ -13,6 +13,28 @@
 
 @synthesize fileString;
 
+#pragma mark string
+-(NSString *)method014
+{
+	NSMutableString *str1 = [NSMutableString string];
+    [str1 appendString:@"---string"];
+    
+    NSLog(@"str1 %@",str1);
+    
+    return str1;    
+}
+
+#pragma mark init
+-(NSString *)method015
+{
+	NSMutableString *str1 = [[NSMutableString alloc] init];
+    [str1 appendString:@"---string"];
+    
+    NSLog(@"str1 %@",str1);
+    
+    return str1;    
+}
+
 -(id)method001_UTF8String
 {
     const char *cPointer;
@@ -199,7 +221,7 @@
     return ret;    
 }
 
-#pragma mark stringByAddingPercentEscapesUsingEncoding:
+#pragma mark stringByReplacingPercentEscapesUsingEncoding:
 -(NSString *)method013
 {
 	NSString *str1 = [NSString stringWithString:@"aaa bbb"];
@@ -212,6 +234,8 @@
     
     return ret;    
 }
+
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -231,6 +255,9 @@
     NSLog(@"test012 %@",    [self method012]);
     
     NSLog(@"test013 %@",    [self method013]);
+    NSLog(@"test014 %@",    [self method014]);
+    
+    NSLog(@"test015 %@",    [self method015]);
     
 }
 
