@@ -13,9 +13,12 @@
 @property (strong) IBOutlet NSWindow *window;
 @property (assign) NSString *fileString;
 
--(id)method001_UTF8String;
--(id)method002_initWithCString;
--(id)method003_initWithUTF8String;
+
+- (NSString *)stringByAppendingFormat:(NSString *)format, ... ;
+
+-(id)method001;
+-(id)method002;
+-(id)method003;
 -(NSUInteger)method004;
 -(unichar)method005;
 -(NSString *)method006;
@@ -30,5 +33,16 @@
 -(NSString *)method012;
 -(NSString *)method013;
 -(NSString *)method014;
+
+-(NSString *)method015;
+
+-(void)method016;
+
+-(void)method017;
+
+-(NSString *)method018;
+
+-(NSString *)method019;
+
 
 @end
