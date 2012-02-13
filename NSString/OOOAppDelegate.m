@@ -235,9 +235,95 @@
     return aString;    
 }
 
+#pragma mark initWithFormat:locale:arguments:
+- (NSString *)stringByAppendingFormat002:(NSString *)format, ... {
+    //change separator
+    NSDictionary *dic= [[NSDictionary alloc] initWithObjectsAndKeys:
+                        @"!",@"NSDecimalSeparator",//separator
+                        nil];             
+    va_list args;
+    va_start(args, format);
+    NSString * result = [[NSString alloc ]initWithFormat:format locale:dic arguments:args];
+    va_end(args);
+    return result;
+}
 
+-(NSString *)method023
+{
+    NSString *aString = [self stringByAppendingFormat002:@"%@ %s %.2f",@"2","a",200.344,nil];
+    
+    return aString;    
+}
 
+#pragma mark initWithData:encoding:
+- (void)displayText:(NSString *)text {
+	self.fileString = text;
+    NSLog(@"text %@",text);
+}
+-(void)method010
+{
+    //FileSystem programming guide
+    //http://developer.apple.com/library/ios/#DOCUMENTATION/FileManagement/Conceptual/FileSystemProgrammingGUide/UsingtheOpenandSavePanels/UsingtheOpenandSavePanels.html
+    
+    
+    //OpenPanelを作る
+    NSOpenPanel  *opPanel       = [ NSOpenPanel openPanel ];
+    
+    //OpenPanelでファイル選択
+    //This way is 10.6 or later
+    [opPanel setCanChooseDirectories:YES];
+    [opPanel setAllowsMultipleSelection:YES];
+    [opPanel setPrompt:NSLocalizedString(@"prompt text", nil)];
+    [opPanel setMessage:@"Message"];
+    
+    [opPanel beginWithCompletionHandler:^(NSInteger result){
+        
+        if (result == NSFileHandlingPanelOKButton) {
+            NSURL*  theDoc = [[opPanel URLs] objectAtIndex:0];
+            
+            // Open  the document.
+            NSData *dat = [NSData dataWithContentsOfURL: theDoc ];
+            
+            NSString *output = [[NSString alloc] initWithData:dat encoding:NSASCIIStringEncoding];
+            
+            
+            [self performSelectorOnMainThread:@selector(displayText:) withObject:output waitUntilDone:NO];
+            
+        }
+    }];
+    
+    
+}
 
+#pragma mark stringWithFormat:
+-(NSString *)method024
+{
+	NSString *str1 = [NSString stringWithFormat:@"int%d",10];
+    
+    return str1;    
+}
+
+#pragma mark localizedStringWithFormat:
+-(NSString *)method025
+{
+    //If the locale is en_US ...2 a 200.34 
+    //If the locale is fr_FR ...2 a 200,34
+    
+	NSString *str1 = [NSString localizedStringWithFormat:@"%@ %s %.2f",@"2","a",200.344,nil];
+    
+    return str1;    
+}
+
+#pragma mark stringWithCharacters:
+-(NSString *)method026
+{
+	
+    const unichar chr[] = {0x53C3,'x','x'};
+    
+    NSString *str1 = [NSString stringWithCharacters:(const unichar *)&chr length:3];
+    
+    return str1;    
+}
 
 
 
@@ -313,45 +399,6 @@
     return ret;    
 }
 
-#pragma mark initWithData:
-- (void)displayText:(NSString *)text {
-	self.fileString = text;
-    NSLog(@"text %@",text);
-}
--(void)method010
-{
-    //FileSystem programming guide
-    //http://developer.apple.com/library/ios/#DOCUMENTATION/FileManagement/Conceptual/FileSystemProgrammingGUide/UsingtheOpenandSavePanels/UsingtheOpenandSavePanels.html
-    
-    
-    //OpenPanelを作る
-    NSOpenPanel  *opPanel       = [ NSOpenPanel openPanel ];
-
-    //OpenPanelでファイル選択
-    //This way is 10.6 or later
-    [opPanel setCanChooseDirectories:YES];
-    [opPanel setAllowsMultipleSelection:YES];
-    [opPanel setPrompt:NSLocalizedString(@"prompt text", nil)];
-    [opPanel setMessage:@"Message"];
-    
-    [opPanel beginWithCompletionHandler:^(NSInteger result){
-        
-        if (result == NSFileHandlingPanelOKButton) {
-            NSURL*  theDoc = [[opPanel URLs] objectAtIndex:0];
-            
-            // Open  the document.
-            NSData *dat = [NSData dataWithContentsOfURL: theDoc ];
-            
-            NSString *output = [[NSString alloc] initWithData:dat encoding:NSASCIIStringEncoding];
-            
-            
-            [self performSelectorOnMainThread:@selector(displayText:) withObject:output waitUntilDone:NO];
-            
-        }
-    }];
-    
-    
-}
 
 #pragma mark dataUsingEncoding:
 -(NSString *)method011
@@ -430,8 +477,12 @@
     NSLog(@"test020 %@",    [self method020]);
     
     NSLog(@"test021 %@",    [self method021]);
-        NSLog(@"test022 %@",    [self method022]);
+    NSLog(@"test022 %@",    [self method022]);
+    NSLog(@"test023 %@",    [self method023]);  
     
+    NSLog(@"test024 %@",    [self method024]); 
+    NSLog(@"test025 %@",    [self method025]); 
+    NSLog(@"test026 %@",    [self method026]); 
     
     
     

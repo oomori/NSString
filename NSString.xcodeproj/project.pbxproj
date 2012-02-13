@@ -17,6 +17,7 @@
 		742EA11314D6B96000D127FF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 742EA0F314D6B96000D127FF /* Cocoa.framework */; };
 		742EA11B14D6B96000D127FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742EA11914D6B96000D127FF /* InfoPlist.strings */; };
 		742EA11E14D6B96000D127FF /* NSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 742EA11D14D6B96000D127FF /* NSStringTests.m */; };
+		74F5C6CE14E92C2B003AD7AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74F5C6D014E92C2B003AD7AA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,9 @@
 		742EA11A14D6B96000D127FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		742EA11C14D6B96000D127FF /* NSStringTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringTests.h; sourceTree = "<group>"; };
 		742EA11D14D6B96000D127FF /* NSStringTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringTests.m; sourceTree = "<group>"; };
+		74F5C6CB14E9294C003AD7AA /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		74F5C6CF14E92C2B003AD7AA /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		74F5C6D114E92C36003AD7AA /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			children = (
 				742EA10514D6B96000D127FF /* OOOAppDelegate.h */,
 				742EA10614D6B96000D127FF /* OOOAppDelegate.m */,
+				74F5C6D014E92C2B003AD7AA /* Localizable.strings */,
 				742EA10814D6B96000D127FF /* MainMenu.xib */,
 				742EA0FA14D6B96000D127FF /* Supporting Files */,
 			);
@@ -206,6 +211,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = 742EA0E414D6B96000D127FF;
 			productRefGroup = 742EA0F014D6B96000D127FF /* Products */;
@@ -226,6 +232,7 @@
 				742EA0FE14D6B96000D127FF /* InfoPlist.strings in Resources */,
 				742EA10414D6B96000D127FF /* Credits.rtf in Resources */,
 				742EA10A14D6B96000D127FF /* MainMenu.xib in Resources */,
+				74F5C6CE14E92C2B003AD7AA /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +311,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				742EA10914D6B96000D127FF /* en */,
+				74F5C6CB14E9294C003AD7AA /* ja */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -314,6 +322,15 @@
 				742EA11A14D6B96000D127FF /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		74F5C6D014E92C2B003AD7AA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74F5C6CF14E92C2B003AD7AA /* en */,
+				74F5C6D114E92C36003AD7AA /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -373,6 +390,7 @@
 				GCC_PREFIX_HEADER = "NSString/NSString-Prefix.pch";
 				INFOPLIST_FILE = "NSString/NSString-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -384,6 +402,7 @@
 				GCC_PREFIX_HEADER = "NSString/NSString-Prefix.pch";
 				INFOPLIST_FILE = "NSString/NSString-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -435,6 +454,7 @@
 				742EA12314D6B96000D127FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		742EA12414D6B96000D127FF /* Build configuration list for PBXNativeTarget "NSStringTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +463,7 @@
 				742EA12614D6B96000D127FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
