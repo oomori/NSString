@@ -914,13 +914,209 @@
     return str2;    
 }
 
-#pragma mark stringByPaddingToLength:
+#pragma mark stringByPaddingToLength:withString:startingAtIndex:
 -(NSString *)method048
 {
 	NSString *str1 = [[NSString alloc] initWithString:@"string"];
-    NSString *str2 = [str1 stringByPaddingToLength: 10 withString: @"." startingAtIndex: 0];
+    NSString *str2 = [str1 stringByPaddingToLength: 10 
+                                        withString: @"." 
+                                   startingAtIndex: 0];
     return str2;
 }
+
+#pragma mark componentsSeparatedByString:
+-(NSString *)method049
+{
+	NSString *str = [[NSString alloc] initWithString:@"aaa:bbb:ccc:ddd:eee:fff"];
+    NSArray *arr = [str componentsSeparatedByString:@":"];
+    
+
+    return [arr componentsJoinedByString:@"/"];
+}
+
+#pragma mark componentsSeparatedByCharactersInSet:
+-(void)method050
+{
+    #if MAC_OS_X_VERSION_10_5 <= MAC_OS_X_VERSION_MAX_ALLOWED || __IPHONE_2_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED
+    
+	NSCharacterSet *chrSet = [NSCharacterSet whitespaceCharacterSet] ;    
+    NSString *str = [[NSString alloc] initWithString:@"aaa bbb　ccc　ddd eee fff"];
+    NSArray *arr = [str componentsSeparatedByCharactersInSet:chrSet];
+    
+    NSLog(@"%@",[arr description]);
+    
+    #endif /* MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5 */
+}
+
+
+#pragma mark stringByTrimmingCharactersInSet:
+-(NSString *)method051
+{
+    NSString *str1 = [[NSString alloc] initWithString:@"   this is a pen   "];
+    NSString *str2 = [str1 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    
+    return str2;
+}
+
+#pragma mark substringFromIndex:
+-(NSString *)method052
+{
+    NSString *str1 = [[NSString alloc] initWithString:@"abcdefghijklmnopqrstuvwxyz"];
+    NSString *str2 = [str1 substringFromIndex:10];
+    return str2;
+}
+
+#pragma mark substringWithRange:
+-(NSString *)method053
+{
+    NSString *str1 = [[NSString alloc] initWithString:@"abcdefghijklmnopqrstuvwxyz"];
+    NSString *str2 = [str1 substringWithRange:NSMakeRange(5,15)];
+    return str2;
+}
+
+#pragma mark substringToIndex:
+-(NSString *)method054
+{
+    NSString *str1 = [[NSString alloc] initWithString:@"abcdefghijklmnopqrstuvwxyz"];
+    NSString *str2 = [str1 substringToIndex:10];
+    return str2;
+}
+
+#pragma mark rangeOfCharacterFromSet:
+-(NSRange)method055
+{
+    NSCharacterSet *chrSet = [NSCharacterSet decimalDigitCharacterSet] ;
+    NSString *str = [[NSString alloc] initWithString:@"abcdefghijk2lmnopqrstuvwxyzabc"];
+    
+    return [str rangeOfCharacterFromSet:chrSet];
+}
+
+#pragma mark rangeOfCharacterFromSet:options:
+-(NSRange)method056
+{
+    NSCharacterSet *chrSet = [NSCharacterSet lowercaseLetterCharacterSet] ;//small alphabet
+    NSString *str = [[NSString alloc] initWithString:@"!!!!!!!!!!!!!!!abc!!!!!!!!"];
+    
+    return [str rangeOfCharacterFromSet:chrSet options:NSLiteralSearch];
+}
+
+#pragma mark rangeOfCharacterFromSet:options:range:
+-(NSRange)method057
+{
+    NSCharacterSet *chrSet = [NSCharacterSet lowercaseLetterCharacterSet] ;//small alphabet
+    NSString *str = [[NSString alloc] initWithString:@"!!!!!!!!!!!!!!!abc!!!!!!!!"];
+    
+    return [str rangeOfCharacterFromSet:chrSet options:NSLiteralSearch range:NSMakeRange(0,20)];
+}
+
+#pragma mark rangeOfString:
+-(NSRange)method058
+{
+    NSString *str = [[NSString alloc] initWithString:@"abcdefghijklmnopqrstuvwxyzabc"];
+    
+    return [str rangeOfString:@"opq"];
+}
+
+#pragma mark rangeOfString:options:
+-(NSRange)method059
+{
+    NSString *str = [[NSString alloc] initWithString:@"abcdefghijklmnopqrstuvwxyzabc"];
+    
+    return [str rangeOfString:@"opq" options:NSBackwardsSearch];
+}
+
+
+#pragma mark rangeOfString:options:range:
+-(NSRange)method060
+{
+    NSString *str = [[NSString alloc] initWithString:@"abcdefghijklmnopqrstuvwxyzabc"];
+    
+    return [str rangeOfString:@"fgh" options:NSBackwardsSearch range:NSMakeRange(3,10)];
+}
+
+#pragma mark rangeOfString:options:range:locale:
+-(NSRange)method061
+{
+    NSString *str = [[NSString alloc] initWithString:@"abcdefghijklmnopqrstuvwxyzabc"];
+    NSLocale *frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+    return [str rangeOfString:@"fgh" options:NSBackwardsSearch range:NSMakeRange(3,10) locale:frLocale];
+}
+
+#pragma mark enumerateLinesUsingBlock:
+- (void)displayText062:(NSString *)text {
+	
+    NSLog(@"text 062 %@",text);
+}
+-(void)method062
+{
+    __block BOOL found = NO;
+	
+	//find word
+	NSString *multiLine = [NSString stringWithString:@"apple\nbanana\norange\n" ];
+	NSString *string = [NSString stringWithString:@"apple" ];
+	
+	[multiLine enumerateLinesUsingBlock:^(NSString *line, BOOL *stop) {
+		
+		if ([line localizedCaseInsensitiveCompare:string] == NSOrderedSame) {
+			*stop = YES;
+			found = YES;
+			NSLog(@"myBlock class= %@",[line className]);
+            
+            [self performSelectorOnMainThread:@selector(displayText062:) withObject:string waitUntilDone:NO];
+            
+		}else{
+            *stop = YES;
+			found = NO;
+            [self performSelectorOnMainThread:@selector(displayText062:) withObject:@"NO!" waitUntilDone:NO];
+            
+        }
+		
+	}];
+	
+}
+
+
+#pragma mark enumerateSubstringsInRange:options:usingBlock:
+- (void)displayText063:(NSString *)text {
+	
+    NSLog(@"text 063 %@",text);
+}
+-(void)method063
+{
+    __block BOOL found = NO;
+	
+	//find word
+	NSString *multiLine = [NSString stringWithString:@"apple\nbanana\norange\n" ];
+	NSString *string = [NSString stringWithString:@"apple" ];
+    NSRange aRange = NSMakeRange(0,9);
+	[multiLine enumerateSubstringsInRange:aRange
+                                  options:NSStringEnumerationByLines
+                               usingBlock:^(NSString *line, 
+                                            NSRange substringRange, 
+                                            NSRange enclosingRange, 
+                                            BOOL *stop) {
+		
+		if ([line localizedCaseInsensitiveCompare:string] == NSOrderedSame) {
+			*stop = YES;
+			found = YES;
+			NSLog(@"myBlock class= %@",[line className]);
+            
+            [self performSelectorOnMainThread:@selector(displayText063:) withObject:string waitUntilDone:NO];
+            
+		}else{
+            *stop = YES;
+			found = NO;
+            [self performSelectorOnMainThread:@selector(displayText063:) withObject:@"NO!" waitUntilDone:NO];
+            
+        }
+        NSLog(@"substringRange = (%lu,%lu)",substringRange.location,substringRange.length);
+        NSLog(@"enclosingRange = (%lu,%lu)",enclosingRange.location,enclosingRange.length);
+		
+	}];
+	
+}
+
 
 #pragma mark canBeConvertedToEncoding:
 -(NSString *)method009
@@ -1053,6 +1249,35 @@
     NSLog(@"test047 %@",    [self method047]);
     NSLog(@"test048 %@",    [self method048]);
     
+    NSLog(@"test049 %@",    [self method049]);
+    [self method050];
+    NSLog(@"test051 '%@'",    [self method051]);
+    NSLog(@"test052 '%@'",    [self method052]);
+    NSLog(@"test053 '%@'",    [self method053]);
+    NSLog(@"test054 '%@'",    [self method054]);
+    
+    NSRange range055= [self method055];
+    NSLog(@"test055 %ld-%ld",range055.location,range055.length);
+    NSRange range056= [self method056];
+    NSLog(@"test056 %ld-%ld",range056.location,range056.length);
+    
+    NSRange range057= [self method057];
+    NSLog(@"test057 %ld-%ld",range057.location,range057.length);
+    NSRange range058= [self method058];
+    NSLog(@"test058 %ld-%ld",range058.location,range058.length);
+    
+    NSRange range059= [self method059];
+    NSLog(@"test059 %ld-%ld",range059.location,range059.length);
+    
+    NSRange range060= [self method060];
+    NSLog(@"test060 %ld-%ld",range060.location,range060.length);
+    
+    
+    NSRange range061= [self method061];
+    NSLog(@"test061 %ld-%ld",range061.location,range061.length);
+
+    [self method062];
+    [self method063];
 }
 
 @end
